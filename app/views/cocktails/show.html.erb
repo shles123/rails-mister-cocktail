@@ -1,2 +1,7 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<h1><%= @cocktail.name %></h1>
+<h2><%= link_to "delete me", cocktail_path(@cocktail), method: :delete%></h2>
+
+<%= simple_form_for [@cocktail, Dose.new] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+<% end %>
